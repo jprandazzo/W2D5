@@ -16,10 +16,18 @@ class Item
     end
 
     def initialize(title,deadline,description)
-        p "Error! please enter deadline in correct format 'YYYY-MM-DD'" if !Item.valid_date?(deadline)
-        @title = title
-        @deadline = deadline if Item.valid_date?(deadline)
-        @description = description
+        # p "Error! please enter deadline in correct format 'YYYY-MM-DD'" if !Item.valid_date?(deadline)
+        # @title = title
+        # @deadline = deadline if Item.valid_date?(deadline)
+        # @description = description
+
+        if Item.valid_date?(deadline)
+            @title = title
+            @deadline = deadline
+            @description = description
+        else
+            p "Error! please enter deadline in correct format 'YYYY-MM-DD'"
+        end
     end
 
     def deadline=(new_deadline)
